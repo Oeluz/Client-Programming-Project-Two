@@ -1,0 +1,26 @@
+body {
+    word-wrap: break-word;
+}
+
+.section {
+    display: block;
+    margin: 50px;
+    padding: 50px;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 2px;
+}
+
+#quote {
+    margin: 25px;
+}
+
+#about-author {
+    font-style: italic;
+    text-align: center;
+}
+
+#degrees h2{
+    margin-top: 50px;
+}
+
