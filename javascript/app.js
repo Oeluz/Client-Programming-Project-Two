@@ -9,3 +9,5 @@ function getData(pathName) {
     });
 }
 
+$(document).ready( function () {
+} );
