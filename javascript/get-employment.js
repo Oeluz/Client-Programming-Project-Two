@@ -87,40 +87,100 @@ getData({
             list.append('<li>' + item + '</li>');
         });
 
-        var table = data.coopTable;
-        $('<div/>', {
-            id: 'employment-coop-div'
-        }).appendTo('#employment');
-
-        $('<h2/>', {
-            text: table.title
-        }).appendTo('#employment-coop-div');
-
-        $('<table/>', {
-            id: 'coop-table',
-            class: 'display'
-        }).appendTo('#employment-coop-div');
-
-        var thead = $('<thead/>', {}).appendTo('#coop-table');
-        var tbody = $('<tbody/>', {}).appendTo('#coop-table');
-
-        var headTr = $('<tr/>', {}).appendTo(thead);
-        headTr.append('<th>Employer</th>');
-        headTr.append('<th>Degree</th>');
-        headTr.append('<th>City</th>');
-        headTr.append('<th>Term</th>');
-
-        $.each(table.coopInformation, function (i, item) {
-            var tr = $('<tr/>', {}).appendTo(tbody);
-
-            tr.append('<th>' + item.employer + '</th>');
-            tr.append('<th>' + item.degree + '</th>');
-            tr.append('<th>' + item.city + '</th>');
-            tr.append('<th>' + item.term + '</th>');
-        })
-
-        $('#coop-table').DataTable();
+        addCoopTable(data);
+        addEmploymentTable(data);
+        addGoogleMap();
 
     }).fail(function (jqXHR) {
         console.log(jqXHR.responseText);
     });
+
+function addCoopTable(data) {
+    var table = data.coopTable;
+    $('<div/>', {
+        id: 'employment-coop-div'
+    }).appendTo('#employment');
+
+    $('<h2/>', {
+        text: table.title
+    }).appendTo('#employment-coop-div');
+
+    $('<table/>', {
+        id: 'coop-table',
+        class: 'display'
+    }).appendTo('#employment-coop-div');
+
+    var thead = $('<thead/>', {}).appendTo('#coop-table');
+    var tbody = $('<tbody/>', {}).appendTo('#coop-table');
+
+    var headTr = $('<tr/>', {}).appendTo(thead);
+    headTr.append('<th>Employer</th>');
+    headTr.append('<th>Degree</th>');
+    headTr.append('<th>City</th>');
+    headTr.append('<th>Term</th>');
+
+    $.each(table.coopInformation, function (i, item) {
+        var tr = $('<tr/>', {}).appendTo(tbody);
+
+        tr.append('<th>' + item.employer + '</th>');
+        tr.append('<th>' + item.degree + '</th>');
+        tr.append('<th>' + item.city + '</th>');
+        tr.append('<th>' + item.term + '</th>');
+    }); //for loop
+
+    $('#coop-table').DataTable();
+} //addCoopTable
+
+function addEmploymentTable(data) {
+    var table = data.employmentTable;
+    $('<div/>', {
+        id: 'employment-table-div'
+    }).appendTo('#employment');
+
+    $('<h2/>', {
+        text: table.title
+    }).appendTo('#employment-table-div');
+
+    $('<table/>', {
+        id: 'employment-table',
+        class: 'display'
+    }).appendTo('#employment-table-div');
+
+    var thead = $('<thead/>', {}).appendTo('#employment-table');
+    var tbody = $('<tbody/>', {}).appendTo('#employment-table');
+
+    var headTr = $('<tr/>', {}).appendTo(thead);
+    headTr.append('<th>Employer</th>');
+    headTr.append('<th>Degree</th>');
+    headTr.append('<th>City</th>');
+    headTr.append('<th>Title</th>');
+    headTr.append('<th>Start Date</th>');
+
+    $.each(table.professionalEmploymentInformation, function (i, item) {
+        var tr = $('<tr/>', {}).appendTo(tbody);
+
+        tr.append('<th>' + item.employer + '</th>');
+        tr.append('<th>' + item.degree + '</th>');
+        tr.append('<th>' + item.city + '</th>');
+        tr.append('<th>' + item.title + '</th>');
+        tr.append('<th>' + item.startDate + '</th>');
+    }); //for loop
+
+    $('#employment-table').DataTable();
+} //addEmploymentTable
+
+function addGoogleMap() {
+    let map;
+
+    $('<div/>', {
+        id: 'map'
+    }).appendTo('#employment');
+
+    map = new google.maps.Map($('map'), {
+        center: {
+            lat: -34.397,
+            lng: 150.644
+        },
+        zoom: 8,
+    });
+}
