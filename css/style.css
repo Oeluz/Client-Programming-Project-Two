@@ -11,6 +11,10 @@ body {
     box-shadow: 2px;
 }
 
+.section-name {
+    width: 100%;
+}
+
 #quote {
     margin: 25px;
 }
@@ -26,4 +30,38 @@ body {
 
 .minor-div {
     margin-top: 50px;
+}
+
+#faculty {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.faculty-div {
+    width: 45%;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 280px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align:auto;
+}
+
+.faculty-image {
+    max-height: 100%;
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto 40px auto 20px;
+}
+
+.faculty-information {
+    vertical-align: center;
 }
