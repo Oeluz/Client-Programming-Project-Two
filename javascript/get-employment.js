@@ -41,12 +41,17 @@ getData({
             text: stat.title
         }).appendTo('#employment-stat-div');
 
+        $('<div/>', {
+            id: 'degree-statistic-div'
+        }).appendTo('#employment-stat-div');
+
         $.each(stat.statistics, function (i, item) {
             $('<div/>', {
-                id: 'employment-statistic-' + i
-            }).appendTo('#employment-stat-div')
+                id: 'employment-statistic-' + i,
+                class: 'degree-statistic'
+            }).appendTo('#degree-statistic-div')
 
-            $('<h3/>', {
+            $('<h2/>', {
                 text: item.value
             }).appendTo('#employment-statistic-' + i);
 
@@ -58,8 +63,12 @@ getData({
         var employer = data.employers;
 
         $('<div/>', {
-            id: 'employment-employers-div'
+            id: 'employment-list-div'
         }).appendTo('#employment');
+
+        $('<div/>', {
+            id: 'employment-employers-div'
+        }).appendTo('#employment-list-div');
 
         $('<h2/>', {
             text: employer.title
@@ -75,7 +84,7 @@ getData({
 
         $('<div/>', {
             id: 'employment-career-div'
-        }).appendTo('#employment');
+        }).appendTo('#employment-list-div');
 
         $('<h2/>', {
             text: career.title

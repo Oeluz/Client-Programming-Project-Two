@@ -31,7 +31,7 @@ getData({
                 id: item.name + '-course-div'
             }).appendTo('#' + item.name + '-minor');
 
-            div.attr('id', '#' + item.name + '-minor tabs');
+            div.attr('id', '#' + item.name + '-minor');
 
             var list = $('<ul/>', {}).appendTo(div);
 
