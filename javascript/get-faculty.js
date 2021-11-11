@@ -45,6 +45,13 @@ getData({
             $('<h4/>', {
                 text: item.phone
             }).appendTo(infoDiv);
+
+            div.mouseover(function() {
+                $(this).animate({opacity: '0.75', width: '46%'}, 500);
+            });
+            div.mouseout(function() {
+                $(this).animate({opacity: '1', width: '45%'}, 500);
+            });
         });
 }).fail(function (jqXHR) {
     console.log(jqXHR.responseText);
