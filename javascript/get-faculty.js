@@ -1,10 +1,10 @@
 getData({
-    path: '/people/',
-})
-.done((data) => {
-    console.log(data);
+        path: '/people/',
+    })
+    .done((data) => {
+        console.log(data);
 
-    $('#faculty').addClass('ui-widget ui-widget-shadow section');
+        $('#faculty').addClass('ui-widget ui-widget-shadow section');
 
         $('<h1/>', {
             text: 'FACULTY',
@@ -12,7 +12,7 @@ getData({
             class: 'section-name'
         }).appendTo('#faculty');
 
-        $.each(data.faculty, function(i, item) {
+        $.each(data.faculty, function (i, item) {
             var div = $('<div/>', {
                 class: 'faculty-div ui-widget-shadow'
             }).appendTo('#faculty');
@@ -45,14 +45,7 @@ getData({
             $('<h4/>', {
                 text: item.phone
             }).appendTo(infoDiv);
-
-            div.mouseover(function() {
-                $(this).animate({opacity: '0.75', width: '46%'}, 500);
-            });
-            div.mouseout(function() {
-                $(this).animate({opacity: '1', width: '45%'}, 500);
-            });
         });
-}).fail(function (jqXHR) {
-    console.log(jqXHR.responseText);
-});
+    }).fail(function (jqXHR) {
+        console.log(jqXHR.responseText);
+    });
